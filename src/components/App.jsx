@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className={css.container}>
         <h1>Phonebook</h1>
         <ContactForm />
         <SearchBox />

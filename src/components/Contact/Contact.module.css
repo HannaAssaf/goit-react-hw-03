@@ -1,0 +1,23 @@
+.container {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 230px;
+}
