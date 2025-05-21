@@ -5,14 +5,21 @@ import inicialContacts from "../data/contacts.json";
 import ContactList from "../components/ContactList/ContactList";
 import SearchBox from "../components/SearchBox/SearchBox";
 import ContactForm from "../components/ContactForm/ContactForm";
+import { nanoid } from "nanoid";
 
 function App() {
   const [contacts, setContacts] = useState(inicialContacts);
   const [inputValue, setInputValue] = useState("");
   const [debouncedInputValue] = useDebounce(inputValue, 300);
-
+  const addNewContact = ({ username, tel }) => {
+    const contact = {
+      id: nanoid(),
+      name: username.trim(),
+      number: tel,
+    };
+    setContacts((prev) => [...prev, contact]);
+  };
   const contactsFilter = useMemo(() => {
-    // if (!debouncedInputValue.trim()) return contacts;
     return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(debouncedInputValue.toLowerCase())
     );
@@ -23,9 +30,9 @@ function App() {
 
   return (
     <>
-      <div className={css.container}>
+      <div className={css.root}>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onSubmit={addNewContact} />
         <SearchBox text={inputValue} onChange={setInputValue} />
         <ContactList contacts={contactsFilter} onDelete={handleDelete} />
       </div>
