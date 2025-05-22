@@ -1,26 +1,22 @@
 #root {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 16px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .container {
-  /* padding: 16px;
+  padding: 16px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  gap: 24px; */
+  gap: 24px;
+  box-sizing: border-box;
 }
 button {
   border: 1px solid rgb(92, 91, 91);
   font-weight: normal;
   font: inherit;
 }
-
-/* .card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
